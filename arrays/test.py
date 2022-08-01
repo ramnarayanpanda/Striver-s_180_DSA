@@ -1,19 +1,18 @@
-from bs4 import BeautifulSoup
-import unidecode
+L = [3, 7, 7, 9, 9] 
+R = [3, 4, 4, 4, 4]
+
+n1 = len(L)
+n2 = len(R)
+i, j = 0, 0
+
+total_cnt = 0
+
+while i<n1:
+    if j<n2 and L[i] > 2*R[j]:
+        while j<n2 and L[i] > 2*R[j]:
+            j+=1
+    i+=1   
+    total_cnt += j
 
 
-# text = """"""
-
-# text = BeautifulSoup(text, 'html.parser').get_text()
-# text = unidecode.unidecode(text)
-
-
-
-html_str = '''
-<td><a href="http://www.fakewebsite.example">Please can you strip me?</a>
-<br/><a href="http://www.fakewebsite.example">I am waiting....</a>
-</td>
-'''
-soup = BeautifulSoup(html_str)
-
-print(soup.get_text())
+print(total_cnt)
